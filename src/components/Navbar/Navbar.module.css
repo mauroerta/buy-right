@@ -1,0 +1,33 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 0;
+  font-size: 1.8rem;
+}
+
+.links {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 16px;
+}
+
+.link {
+  text-decoration: none;
+  color: black;
+}
+
+.link:hover {
+  animation: bounce 2s ease infinite;
+}
+
+@keyframes bounce {
+  0% { transform:translateY(0%); }
+  10% { transform:translateY(-15%); }
+  20% { transform:translateY(0%); }
+  30% { transform:translateY(-7%); }
+  35% { transform:translateY(0%); }
+  40% { transform:translateY(-3%); }
+  45% { transform:translateY(0); }
+}

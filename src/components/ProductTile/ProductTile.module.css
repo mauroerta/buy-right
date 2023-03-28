@@ -1,0 +1,39 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  height: 300px;
+  border-radius: 16px;
+  text-decoration: none;
+  transition: all ease-in 0.3s;
+  color: black;
+  position: relative;
+  box-shadow: var(--shadow);
+}
+
+.container:hover {
+  scale: 1.02;
+}
+
+.title {
+  background: var(--background);
+  bottom: 0;
+  position: absolute;
+  padding: 16px;
+  width: 100%;
+  border-bottom-left-radius: 16px;
+  border-bottom-right-radius: 16px;
+  text-align: center;
+  opacity: 0;
+  transition: all ease-in 0.3s;
+}
+
+.container:hover .title {
+  opacity: 1;
+}
+
+.skeleton {
+  height: 300px;
+}
