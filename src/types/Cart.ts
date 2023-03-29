@@ -1,10 +1,10 @@
-type CartProduct = {
-  productId: number;
-  quantity: number;
-};
+import { Product } from "./Product";
 
 export type Cart = {
-  products: CartProduct[];
-  tax: number;
-  total: number;
+  id: string;
+  user_id: string;
+};
+
+export type CartProduct = Product & {
+  quantity: number;
 };

@@ -1,8 +1,15 @@
-import { Cart } from "@/types/Cart";
-import { query } from "./db";
+import { CartProduct } from "@/types/Cart";
 
-export async function getCart() {
-  const results = await query<Cart[]>("SELECT * FROM cart");
-
-  return results[0];
+export function getCartProducts(): CartProduct[] {
+  return [
+    {
+      description: "",
+      icon: "",
+      id: 1,
+      price: 23,
+      quantity: 2,
+      slug: "",
+      title: "",
+    },
+  ];
 }

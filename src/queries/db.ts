@@ -36,7 +36,7 @@ export function query<Data>(sql: string | mysql.Query): Promise<Data> {
         return reject(error.code);
       }
 
-      resolve(data);
+      resolve(data.map((result: any) => Object.assign({}, result)));
     });
   });
 }

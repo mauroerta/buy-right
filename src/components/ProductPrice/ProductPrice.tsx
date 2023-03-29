@@ -1,19 +1,19 @@
 import clsx from "clsx";
 import styles from "./ProductPrice.module.css";
+import { BuyButton } from "../BuyButton";
+import { Product } from "@/types/Product";
 
 type ProductPriceProps = {
-  price: number;
+  product: Product;
   className?: string;
 };
 
-export function ProductPrice({ price, className }: ProductPriceProps) {
+export function ProductPrice({ product, className }: ProductPriceProps) {
   return (
     <section className={clsx(styles.container, className)}>
       <span className={styles.title}>The Right Price</span>
-      <span className={styles.price}>{price} $</span>
-      <button type="button" className={styles.buyButton}>
-        Buy
-      </button>
+      <span className={styles.price}>{product.price} $</span>
+      <BuyButton product={product} />
     </section>
   );
 }
