@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Emoji } from "../Emoji";
+import { CartLink } from "./CartLink";
 import styles from "./Navbar.module.css";
 
 export function Navbar() {
@@ -12,9 +13,7 @@ export function Navbar() {
         </Link>
       </div>
       <div className={styles.links}>
-        <Link href="/cart" className={styles.link}>
-          <Emoji label="cart">🛒</Emoji>
-        </Link>
+        <CartLink />
         <Link href="/profile" className={styles.link}>
           <Emoji label="profile">😎</Emoji>
         </Link>

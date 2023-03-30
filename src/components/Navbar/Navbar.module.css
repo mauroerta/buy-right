@@ -16,6 +16,20 @@
 .link {
   text-decoration: none;
   color: black;
+  position: relative;
+}
+
+.dot {
+  position: absolute;
+  font-size: small;
+  z-index: 2;
+  height: 20px;
+  width: 20px;
+  background-color: var(--primary);
+  color: white;
+  border-radius: 50%;
+  text-align: center;
+  left: -10px;
 }
 
 .link:hover {

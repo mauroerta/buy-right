@@ -1,11 +1,12 @@
+import Link from "next/link";
 import { useCart } from "@/hooks/useCart";
 import { Emoji } from "../Emoji";
 import { EmptyState } from "./EmptyState";
+import { CartTotal } from "./CartTotal";
 import styles from "./CartDetail.module.css";
-import Link from "next/link";
 
 export function CartDetail() {
-  const { cart, remove } = useCart();
+  const { cart, total, remove } = useCart();
 
   const isEmpty = cart.length === 0;
 
@@ -40,27 +41,7 @@ export function CartDetail() {
           </div>
         ))}
       </div>
-      <div className={styles.footer}>
-        <div>
-          <div className={styles.priceItem}>
-            <span className={styles.label}>Subtotal</span>
-            <span>{cart.reduce((acc, curr) => acc + curr.price, 0)}</span>
-          </div>
-          <div className={styles.priceItem}>
-            <span className={styles.label}>Tax</span>
-            <span>0$</span>
-          </div>
-          <hr className={styles.divider} />
-          <div className={styles.priceItem}>
-            <span className={styles.label}>Total</span>
-            <span>{cart.reduce((acc, curr) => acc + curr.price, 0)}</span>
-          </div>
-        </div>
-
-        <div className={styles.checkout}>
-          <Link href="/checkout">Checkout</Link>
-        </div>
-      </div>
+      <CartTotal total={total} subtotal={total} tax="0" />
     </section>
   );
 }

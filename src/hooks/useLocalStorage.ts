@@ -16,24 +16,21 @@ export function useLocalStorage<Data>(
   key: string,
   { defaultValue }: UseLocalStorageOptions<Data>
 ): UseLocalStorageReturn<Data> {
-  const [storage, setStorage] = useState<Data>(defaultValue);
+  const [state, setState] = useState<Data>(defaultValue);
 
   useEffect(() => {
-    setStorage((prev) =>
-      window.localStorage.getItem(key)
-        ? JSON.parse(localStorage.getItem(key) as string)
-        : prev
-    );
+    const storage = window.localStorage.getItem(key);
+    setState((prev) => (storage ? JSON.parse(storage) : prev));
   }, [key]);
 
-  function set(valueOrFunction: SetStateAction<Data>) {
+  function setter(valueOrFunction: SetStateAction<Data>) {
     const value = isFunction(valueOrFunction)
-      ? valueOrFunction(storage)
+      ? valueOrFunction(state)
       : valueOrFunction;
 
     localStorage.setItem(key, JSON.stringify(value));
-    setStorage(valueOrFunction);
+    setState(valueOrFunction);
   }
 
-  return [storage, set];
+  return [state, setter];
 }

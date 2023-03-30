@@ -21,5 +21,9 @@ export function useCart() {
     setCart((prev) => prev.filter((product) => product.id !== productId));
   }
 
-  return { cart, add, remove };
+  const total = Number(cart.reduce((acc, curr) => acc + curr.price, 0)).toFixed(
+    2
+  );
+
+  return { cart, total, add, remove };
 }
