@@ -53,23 +53,6 @@
   flex: 1;
 }
 
-.payButton {
-  color: white;
-  border: 0;
-  padding: 0.5rem;
-  border-radius: 16px;
-  background-color: var(--primary);
-  font-weight: bold;
-  cursor: pointer;
-  transition: all ease-in-out 0.3s;
-  box-sizing: border-box;
-}
-
-.payButton:hover {
-  transform: scale(1.02);
-  box-shadow: var(--shadow);
-}
-
 @media (max-width: 1279px) {
   .card {
     width: 300px;

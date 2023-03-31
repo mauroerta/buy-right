@@ -1,9 +1,10 @@
+import { ProfileForm } from "@/components/ProfileForm";
 import { Section } from "@/components/Section";
 
-export default function Cart() {
+export default function Profile() {
   return (
     <Section icon="😎" title="Profile">
-      <h2>Profile</h2>
+      <ProfileForm />
     </Section>
   );
 }

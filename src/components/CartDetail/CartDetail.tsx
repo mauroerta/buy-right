@@ -32,7 +32,7 @@ export function CartDetail() {
             <span>{product.quantity}</span>
             <span>{product.price} $</span>
             <button
-              role="button"
+              type="button"
               className={styles.remove}
               onClick={() => remove(product.id)}
             >

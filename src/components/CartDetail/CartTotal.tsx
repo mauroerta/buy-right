@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { CartProduct } from "@/types/Cart";
 import styles from "./CartDetail.module.css";
 
 type CartTotalProps = {
@@ -28,7 +27,9 @@ export function CartTotal({ total, subtotal, tax }: CartTotalProps) {
       </div>
 
       <div className={styles.checkout}>
-        <Link href="/checkout">Checkout</Link>
+        <Link href="/checkout" className={styles.checkout}>
+          Checkout
+        </Link>
       </div>
     </div>
   );

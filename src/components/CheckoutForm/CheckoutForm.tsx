@@ -6,6 +6,8 @@ import { BankLogo } from "./BankLogo";
 import { useCart } from "@/hooks/useCart";
 import styles from "./CheckoutForm.module.css";
 import { Input } from "../Input";
+import { Button } from "../Button";
+import { useProfile } from "@/hooks/useProfile";
 
 type CheckoutDetail = {
   cvv: string;
@@ -20,20 +22,27 @@ const schema = yup.object({
 });
 
 export function CheckoutForm() {
+  const { total } = useCart();
+  const { profile } = useProfile();
+
   const {
     register,
-    formState: { errors },
+    formState: { errors, isDirty },
     handleSubmit,
   } = useForm<CheckoutDetail>({
     defaultValues: {
       cvv: "",
-      name: "",
+      name: `${profile.firstName} ${profile.lastName}`,
+      number: "",
+    },
+
+    values: {
+      cvv: "",
+      name: profile.firstName ? `${profile.firstName} ${profile.lastName}` : "",
       number: "",
     },
     resolver: yupResolver(schema),
   });
-
-  const { total } = useCart();
 
   return (
     <section className={styles.container}>
@@ -64,7 +73,7 @@ export function CheckoutForm() {
             className={styles.input}
           />
           <Input
-            type="text"
+            type="number"
             {...register("cvv", { required: true })}
             placeholder="CVV"
             error={errors.cvv}
@@ -72,9 +81,9 @@ export function CheckoutForm() {
           />
         </div>
 
-        <button type="submit" className={styles.payButton}>
+        <Button type="submit" disabled={!isDirty}>
           Pay {total} $
-        </button>
+        </Button>
       </form>
     </section>
   );
