@@ -11,7 +11,15 @@ export function CartLink() {
 
   return (
     <Link href="/cart" className={styles.link}>
-      {hasProducts ? <span className={styles.dot}>{cart.length}</span> : null}
+      {hasProducts ? (
+        <span
+          role="status"
+          aria-label="number of items in the cart"
+          className={styles.dot}
+        >
+          {cart.length}
+        </span>
+      ) : null}
       <Emoji label="cart">🛒</Emoji>
     </Link>
   );
