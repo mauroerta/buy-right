@@ -43,6 +43,10 @@
   position: relative;
 }
 
+.item:not(:last-child) {
+  border-bottom: 1px solid rgba(0,0,0,0.2);
+}
+
 .item a {
   text-decoration: none;
   color: var(--primary)
@@ -92,4 +96,31 @@
   padding: 8px 48px;
   border-radius: 16px;
   font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  .footer {
+    grid-template-columns: 1fr;
+    gap: 16px;
+
+    padding: 40px 0 0 0;
+  }
+
+  .list, .header {
+    padding: 20px 0;
+    font-size: 1rem;
+  }
+
+  .item {
+    padding: 10px 0px;
+  }
+
+  .remove {
+    right: -1rem;
+    background: white;
+    border-radius: 50%;
+    box-shadow: var(--shadow);
+    padding: 4px;
+    text-align: center;
+  }
 }
