@@ -1,0 +1,16 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.container h1 {
+  font-size: 2rem;
+}
+
+.link {
+  padding-left: 32px;
+  padding-right: 32px;
+}

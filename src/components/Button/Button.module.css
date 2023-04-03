@@ -10,6 +10,10 @@
   background-color: var(--primary);
 }
 
+.link {
+  text-decoration: none;
+}
+
 .button:hover.button:not(:disabled) {
   transform: scale(1.02);
   box-shadow: var(--shadow);

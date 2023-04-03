@@ -1,13 +1,16 @@
+import { useState } from "react";
 import { useForm } from "react-hook-form";
+import { useRouter } from "next/navigation";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import { Emoji } from "../Emoji";
-import { BankLogo } from "./BankLogo";
 import { useCart } from "@/hooks/useCart";
-import styles from "./CheckoutForm.module.css";
+import { pay } from "@/services/pay";
+import { useProfile } from "@/hooks/useProfile";
+import { Emoji } from "../Emoji";
 import { Input } from "../Input";
 import { Button } from "../Button";
-import { useProfile } from "@/hooks/useProfile";
+import { BankLogo } from "./BankLogo";
+import styles from "./CheckoutForm.module.css";
 
 type CheckoutDetail = {
   cvv: string;
@@ -22,8 +25,10 @@ const schema = yup.object({
 });
 
 export function CheckoutForm() {
-  const { total } = useCart();
+  const { total, cart, clear: clearCart } = useCart();
   const { profile } = useProfile();
+  const router = useRouter();
+  const [isPaying, setIsPaying] = useState(false);
 
   const {
     register,
@@ -35,7 +40,7 @@ export function CheckoutForm() {
       name: `${profile.firstName} ${profile.lastName}`,
       number: "",
     },
-
+    mode: "all",
     values: {
       cvv: "",
       name: profile.firstName ? `${profile.firstName} ${profile.lastName}` : "",
@@ -43,6 +48,19 @@ export function CheckoutForm() {
     },
     resolver: yupResolver(schema),
   });
+
+  function onSubmit() {
+    setIsPaying(true);
+    pay(cart)
+      .then(() => {
+        setIsPaying(false);
+        clearCart();
+        router.push("/thank-you");
+      })
+      .catch(() => {
+        setIsPaying(false);
+      });
+  }
 
   return (
     <section className={styles.container}>
@@ -54,7 +72,7 @@ export function CheckoutForm() {
         <div>xxxx xxxx xxxx xxxx</div>
         <BankLogo className={styles.logo} />
       </div>
-      <form className={styles.form} onSubmit={handleSubmit(console.log)}>
+      <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
         <div className={styles.inputsBox}>
           <Input
             type="number"
@@ -81,8 +99,8 @@ export function CheckoutForm() {
           />
         </div>
 
-        <Button type="submit" disabled={!isDirty}>
-          Pay {total} $
+        <Button type="submit" disabled={!isDirty || isPaying}>
+          {isPaying ? "Paying..." : `Pay ${total} $`}
         </Button>
       </form>
     </section>
