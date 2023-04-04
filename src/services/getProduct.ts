@@ -1,15 +1,17 @@
 import { Product } from "@/types/Product";
-import { query } from "./db";
+import { getProducts } from "./getProducts";
 
 export async function getProductBy<Field extends keyof Product>(
   field: Field,
   value: Product[Field]
 ): Promise<Product> {
-  const results = await query<Product[]>(
-    `SELECT * FROM products WHERE ${field}="${value}" LIMIT 1`
-  );
+  const products = await getProducts();
+  const found = products.find((product) => product[field] === value);
+  if (!found) {
+    throw new Error(`No product found with ${field} equal to ${value}`);
+  }
 
-  return results[0];
+  return found;
 }
 
 export async function getProductBySlug(slug: string): Promise<Product> {

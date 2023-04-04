@@ -1,4 +1,4 @@
-import { getRelatedProducts } from "@/queries/getRelatedProducts";
+import { getRelatedProducts } from "@/services/getRelatedProducts";
 import { ProductTile } from "../ProductTile";
 import styles from "./RelatedProducts.module.css";
 

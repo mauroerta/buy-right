@@ -1,6 +1,6 @@
 import { ProductPrice } from "@/components/ProductPrice";
 import { ProductDetail } from "@/components/ProductDetail";
-import { getProductBySlug } from "@/queries/getProduct";
+import { getProductBySlug } from "@/services/getProduct";
 import styles from "./page.module.css";
 import { Section } from "@/components/Section";
 

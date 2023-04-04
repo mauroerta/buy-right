@@ -1,4 +1,4 @@
-import { getProducts } from "@/queries/getProducts";
+import { getProducts } from "@/services/getProducts";
 import { ProductTile } from "../ProductTile";
 import { Skeleton } from "./Skeleton";
 import styles from "./ProductsGrid.module.css";
