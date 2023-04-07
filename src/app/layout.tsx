@@ -6,7 +6,7 @@ import "./globals.css";
 
 export const metadata = {
   title: "Buy-Right",
-  description: "Example e-commerce app made for the educative course",
+  description: "Fake e-commerce made for educative",
 };
 
 type LayoutProps = {

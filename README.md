@@ -1,38 +1,50 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Welcome to Buy-Right
+
+Buy-Right is a little fake e-commerce created as a reference for [this course](https://www.educative.io/collection/6586453712175104/5946216679735296) about testing with [Playwright](https://playwright.dev/).
+
+The website is built using `TypeScript`, `Next.js` and `PNPM` as the package manager.
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+Before you get started, you'll need to have the following installed on your machine:
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- Node.js (version v16.8 or higher)
+- PNPM
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Installation
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+1. Clone this repository to your local machine
+2. Open a terminal in the project's root directory
+3. Run `pnpm install` to install the project's dependencies
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+### Starting the Development Server
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+1. Open a terminal in the project's root directory
+2. Run `pnpm dev` to start the development server
+3. Open `http://localhost:3000` in your browser to view the website
 
-## Learn More
+### Building the Production Version
 
-To learn more about Next.js, take a look at the following resources:
+1. Open a terminal in the project's root directory
+2. Run `pnpm build` to build the production version of the website
+3. Run `pnpm start` to start the production server
+4. Open `http://localhost:3000` in your browser to view the website
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Testing
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+1. Open a terminal in the project's root directory
+2. Run `pnpm test` to run the e2e tests using Playwright
 
-## Deploy on Vercel
+## Project Structure
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+The project's source code is located in the `src` directory, and the compiled code is located in the `out` directory. The project's configuration files (e.g. `tsconfig.json`, `next.config.js`) are located in the project's root directory.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+The `src/app` directory contains the website's pages, and the `src/components` directory contains reusable components.
+
+The e2e tests are located in the `e2e` directory. The tests use Playwright to interact with the website and make assertions.
+
+## Educative
+
+Are you interested on learning [Playwright](https://playwright.dev/)? Have a look at my course [here](https://www.educative.io/collection/6586453712175104/5946216679735296)!
