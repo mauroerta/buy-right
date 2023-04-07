@@ -39,7 +39,7 @@ Before you get started, you'll need to have the following installed on your mach
 
 ## Project Structure
 
-The project's source code is located in the `src` directory, and the compiled code is located in the `out` directory. The project's configuration files (e.g. `tsconfig.json`, `next.config.js`) are located in the project's root directory.
+The project's source code is located in the `src` directory, and the compiled code is located in the `.next` directory. The project's configuration files (e.g. `tsconfig.json`, `next.config.js`) are located in the project's root directory.
 
 The `src/app` directory contains the website's pages, and the `src/components` directory contains reusable components.
 
