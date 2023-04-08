@@ -43,7 +43,7 @@ The project's source code is located in the `src` directory, and the compiled co
 
 The `src/app` directory contains the website's pages, and the `src/components` directory contains reusable components.
 
-The e2e tests are located in the `e2e` directory. The tests use Playwright to interact with the website and make assertions.
+The e2e tests are located in the `tests` directory. The tests use Playwright to interact with the website and make assertions.
 
 ## Educative
 
