@@ -9,7 +9,7 @@ export function Navbar() {
       <div />
       <div>
         <Link href="/" className={styles.link}>
-          <h1>buy-right</h1>
+          <h1 data-testid="navbar-title">buy-right</h1>
         </Link>
       </div>
       <div className={styles.links}>
