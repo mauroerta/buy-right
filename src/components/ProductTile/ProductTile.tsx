@@ -6,11 +6,15 @@ import styles from "./ProductTile.module.css";
 
 export function ProductTile({ title, slug, icon }: Product) {
   return (
-    <Link href={`/products/${slug}`} className={styles.container}>
+    <Link
+      href={`/products/${slug}`}
+      className={styles.container}
+      data-testid="product-tile"
+    >
       <Emoji label={title} size="large">
         {icon}
       </Emoji>
-      <p className={styles.title}>{title}</p>
+      <span className={styles.title}>{title}</span>
     </Link>
   );
 }
